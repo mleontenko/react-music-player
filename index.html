@@ -22,12 +22,17 @@
       this.state = { isMusicPlaying: false };
     }
 
-    handleClick(event) {
+    handleClick() {
       if (this.state.isMusicPlaying) {
-        this.setState({ isMusicPlaying: false });
+        this.audio.pause();
       } else {
-        this.setState({ isMusicPlaying: true });
+        this.audio.play();
       }
+      this.setState(prevState => {
+        return { 
+          isMusicPlaying: !prevState.isMusicPlaying   
+        };
+      });
     };
 
     render() {
@@ -41,6 +46,7 @@
             onClick={this.handleClick.bind(this)}
             isMusicPlaying={this.state.isMusicPlaying} 
           />
+          <audio id="audio" ref={(audioTag) => { this.audio = audioTag }} />
         </div>
       );
       }
