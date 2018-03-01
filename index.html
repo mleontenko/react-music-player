@@ -11,18 +11,15 @@
 <script src="https://soulwire.github.io/sketch.js/js/sketch.min.js"></script>
 <script src="app.js"></script>
 <script type="text/babel">
-  function OurFirstComponent() {
-    return (
-      <h1>I am the child</h1>
-    );
+  function PlayButton() {
+      return <a href="#" title="Play video" className="play"/>;    
   }
 
   class Container extends React.Component {
-    render() {
+    render() {      
       return (
         <div>
-          <h1>I am the parent!</h1>
-          <OurFirstComponent />
+          <PlayButton />
         </div>
       );
       }
